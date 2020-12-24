@@ -1,0 +1,27 @@
+<div class="row verse" *ngIf="animal">
+  <div class="col text-center">
+    <p class="mb-0">Old MacDonald had a farm, E I E I O,</p>
+    <p class="mb-0">
+      And on his farm he had a 
+      <span class="font-weight-bold">{{animal.name}},</span> 
+      E I E I O.
+    </p>
+    <p class="mb-0">
+      With a 
+      <span class="font-weight-bold">{{animal.sound}} {{animal.sound}}</span> 
+      here and a 
+      <span class="font-weight-bold">{{animal.sound}} {{animal.sound}}</span> 
+      there,
+    </p>
+    <p class="mb-0">
+      Hera a 
+      <span class="font-weight-bold">{{animal.sound}}</span>
+      , there a 
+      <span class="font-weight-bold">{{animal.sound}}</span>
+      , ev'rywhere a 
+      <span class="font-weight-bold">{{animal.sound}} {{animal.sound}}</span>
+      .
+    </p>
+    <p class="mb-0">Old MacDonald had a farm, E I E I O.</p>
+  </div>
+</div> 

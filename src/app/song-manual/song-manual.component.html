@@ -1,0 +1,59 @@
+<div class="mb-5">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 mb-sm-5 mb-md-0">
+      <h3 class="mb-sm-2 mb-md-5">Please, choose animals</h3>
+      <div class="mb-3">
+        <app-checkbox-group [options]="animalsOptions" (toggle)="onAnimalsChange($event)"></app-checkbox-group>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 mb-3">
+      <h3 class="mb-sm-2 mb-md-5">Or add your animal</h3>
+      <form class="row" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+        <div class="form-group col-sm-12 col-6 mb-md-0">
+          <label for="inputEmail4">Name<span class="pl-1 text-danger">*</span>
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Enter animal name" 
+              formControlName="newAnimalName"
+              required
+            />
+          </label>
+        </div>
+        <div class="form-group col-sm-12 col-6">
+          <label for="inputPassword4">Sound<span class="pl-1 text-danger">*</span>
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Enter animal sound" 
+              formControlName="newAnimalSound"
+              required
+            />
+          </label>
+        </div>
+        <div class="form-group col-sm-12 col-6">
+          <button class="btn btn-primary" type="submit">Add animal</button>
+        </div>
+      </form>
+      <div *ngIf="newAnimalName.invalid && (newAnimalName.dirty || newAnimalName.touched)">      
+        <p *ngIf="newAnimalName.errors.required" class="small text-danger mb-0">Name is required.</p>
+        <p *ngIf="newAnimalName.errors.pattern" class="small text-danger mb-0">Name must be a string.</p>
+      </div>
+      <div *ngIf="newAnimalSound.invalid && (newAnimalSound.dirty || newAnimalSound.touched)">
+        <p *ngIf="newAnimalSound.errors.required" class="small text-danger mb-0">Sound is required.</p>
+        <p *ngIf="newAnimalSound.errors.pattern" class="small text-danger mb-0">Sound must be a string.</p>
+      </div>
+    </div>    
+  </div>
+</div>
+
+<div *ngIf="selectedAnimals && !!selectedAnimals.length; else hideSong">
+  <h3 class="mb-5">Here your new song</h3>
+  <div *ngFor="let animal of selectedAnimals">
+    <app-verse [animal]="animal"></app-verse>
+  </div>
+</div>
+
+<ng-template #hideSong>
+  <h3>Nothing is selected</h3>
+</ng-template>
