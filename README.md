@@ -3,10 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
 ## Start project
-Clone this repository by `git clone https://github.com/fishouk/MCDONALD.git`
-Install global Angular `npm install -g @angular/cli`
-Cd ti project `cd MCDONALD`
-Install node modules `npm install`
+1. Clone this repository by `git clone https://github.com/fishouk/MCDONALD.git`
+1. Install global Angular `npm install -g @angular/cli`
+1. Cd ti project `cd MCDONALD`
+1. Install node modules `npm install`
 
 ## Development server
 
